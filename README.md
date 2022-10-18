@@ -10,10 +10,10 @@ Example using Apache Ignite cache and sql queries over cache.
 - RESTful services
 - Swagger
 
-## Copy
+## Clone
 
 ```
-./gradlew clean build
+git clone git@github.com:a11exe/spring-boot-apache-ignite.git
 ```
 
 ## Build
