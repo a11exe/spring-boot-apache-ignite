@@ -1,0 +1,56 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.3.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+}
+
+group = 'com.alllexe'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	ignite = "2.8.1"
+}
+
+configurations {
+	all*.exclude module : 'spring-boot-starter-logging'
+	all*.exclude module : 'logback-classic'
+}
+
+dependencies {
+	implementation 'com.h2database:h2:1.4.197'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	implementation "org.apache.ignite:ignite-core:${ignite}"
+	implementation "org.apache.ignite:ignite-spring:${ignite}"
+	implementation "org.apache.ignite:ignite-spring-data_2.2:${ignite}"
+	implementation "org.apache.ignite:ignite-rest-http:${ignite}"
+	implementation "javax.cache:cache-api"
+
+	compileOnly 'org.projectlombok:lombok:1.16.16'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+//jar {
+//	manifest {
+//		attributes "Main-Class": "com.alllexe.springbootignite.SpringBootIgniteApplication"
+//	}
+//
+//	from {
+//		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//	}
+//}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
