@@ -28,7 +28,7 @@ java -DIGNITE_QUIET=false -DIGNITE_JETTY_PORT=8081 -jar build/libs/spring-boot-i
 ```
 
 ## Use
-Open swagger ui [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.htm)
+Open swagger ui [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 Get person by id:
 ```
